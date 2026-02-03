@@ -59,7 +59,7 @@ class modifiers:
 
     chaos = Modifier()
     chaos.name = "\033[95mChaos\033[0m"
-    chaos.description = "Has a chance to \033[92increase\033[0m or \033[91decrease\033[0m weapon stats"
+    chaos.description = "Has a chance to \033[92mincrease\033[0m or \033[91mdecrease\033[0m weapon stats"
 
 def randomModifier() -> Modifier:
     return random.choice([modifiers.lifesteal, modifiers.healBoost, modifiers.itemFinder, modifiers.maxHpBoost, modifiers.chaos])
@@ -145,7 +145,7 @@ def randomWeapon(player: Player) -> Weapon:
             else:
                 newWeapon.modifier = modifiers.none
         else:
-            if int(random.randrange(1 + rarityBonus(newWeapon), 12) / 10) == 1:
+            if int(random.randrange(rarityBonus(newWeapon), 11) / 10) == 1:
                 newWeapon.modifier = randomModifier()
             else:
                 newWeapon.modifier = modifiers.none
@@ -181,7 +181,7 @@ def randomWeapon(player: Player) -> Weapon:
             else:
                 newWeapon.modifier = modifiers.none
         else:
-            if int(random.randrange(1 + rarityBonus(newWeapon), 12) / 10) == 1:
+            if int(random.randrange(rarityBonus(newWeapon), 11) / 10) == 1:
                 newWeapon.modifier = randomModifier()
             else:
                 newWeapon.modifier = modifiers.none
@@ -247,7 +247,7 @@ def heal(player: Player) -> int:
 
 def playerFightAction() -> str:
     action = ""
-    while action != "Fight" and action != "Heal" and action != "F" and action != "H":
+    while action != "fight" and action != "heal" and action != "f" and action != "h":
         action = input("\nWould you like to Fight or Heal?: ")
     return action
 
@@ -266,12 +266,12 @@ def main():
         while player.hp > 0 and enemy.hp > 0:
             sleep(0.5)
             playerAction = playerFightAction()
-            if playerAction == "Fight" or playerAction == "F":
+            if playerAction == "fight" or playerAction == "f":
                 playerAttack(player,enemy)
                 sleep(0.1)
                 if enemy.hp > 0:
                     print(f"The Enemy has {enemy.hp} HP left")
-            elif playerAction == "Heal" or playerAction == "H":
+            elif playerAction == "heal" or playerAction == "h":
                 healAmount = heal(player)
                 player.hp += healAmount
                 if player.hp > player.maxhp:
@@ -349,13 +349,14 @@ def main():
         print(f"{weapon1.modifier.description}" + f"{weapon2.modifier.description}".rjust(40))
         
         decision = ""
-        while decision != "Swap" and decision != "S" and decision != "Drop" and decision != "D":
+        while decision != "swap" and decision != "s" and decision != "drop" and decision != "d":
             decision = input("\nWould you like to Swap or Drop this new weapon?: ")
-        if decision == "Swap" or decision == "S":
+            decision.lower()
+        if decision == "swap" or decision == "s":
             player.weapon = weapon2
             print("Swapped weapon")
             return
-        elif decision == "Drop" or decision == "D":
+        elif decision == "drop" or decision == "d":
             return
     
     def loot():
@@ -392,17 +393,18 @@ def main():
                 print("You got nothing!")
 
     classInput = ""
-    while classInput != "Melee" and classInput != "M" and classInput != "Range" and classInput != "R":
+    while classInput != "melee" and classInput != "m" and classInput != "range" and classInput != "r":
         clear()
         print("\033[91mPLEASE NOTE EVERYTHING IS CASE SENSITIVE\033[0m\n")
         classInput = input("Which class would you like to pick?\n" \
         "\033[91mMelee\033[0m: High Damage, Low Crit\n" \
         "\033[94mRange\033[0m: Low Damage, High Crit\n\n" \
         "Select a class: ")
-    if classInput == "Melee" or classInput == "M":
+        classInput.lower()
+    if classInput == "melee" or classInput == "m":
         player.weapon = starterWeapons.meleeStarter
         player.playerClass = "Melee"
-    elif classInput == "Range" or classInput == "R":
+    elif classInput == "range" or classInput == "r":
         player.weapon = starterWeapons.rangeStarter
         player.playerClass = "Range"
     else:
@@ -421,6 +423,7 @@ def main():
     main()
 
 main()
+
 
 
 
