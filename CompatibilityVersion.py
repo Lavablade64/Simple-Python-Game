@@ -1,7 +1,5 @@
 import random
-
-def sleep(a):
-    pass
+from time import sleep
 
 class World:
     difficulty: int
@@ -418,10 +416,12 @@ def main():
     while fight():
         sleep(0.5)
         loot()
+    sleep(1)
     input("Press Enter to continue")
     main()
 
 main()
+
 
 
 
