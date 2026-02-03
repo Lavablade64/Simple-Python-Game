@@ -249,7 +249,7 @@ def heal(player: Player) -> int:
 
 def playerFightAction() -> str:
     action = ""
-    while action != "Fight" and action != "Heal":
+    while action != "Fight" and action != "Heal" and action != "F" and action != "H":
         action = input("\nWould you like to Fight or Heal?: ")
     return action
 
@@ -268,12 +268,12 @@ def main():
         while player.hp > 0 and enemy.hp > 0:
             sleep(0.5)
             playerAction = playerFightAction()
-            if playerAction == "Fight":
+            if playerAction == "Fight" or playerAction == "F":
                 playerAttack(player,enemy)
                 sleep(0.1)
                 if enemy.hp > 0:
                     print(f"The Enemy has {enemy.hp} HP left")
-            elif playerAction == "Heal":
+            elif playerAction == "Heal" or playerAction == "H":
                 healAmount = heal(player)
                 player.hp += healAmount
                 if player.hp > player.maxhp:
@@ -422,6 +422,7 @@ def main():
     main()
 
 main()
+
 
 
 
