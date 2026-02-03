@@ -139,10 +139,16 @@ def randomWeapon(player: Player) -> Weapon:
         for i in range(5):
             newWeapon.critDamage += int(random.randrange(1, 11 + rarityBonus(newWeapon) * 5) / 8) * 0.1
         
-        if int(random.randrange(1 + rarityBonus(newWeapon), 11) / 10) == 1:
-            newWeapon.modifier = randomModifier()
+        if rarityBonus(newWeapon) < 10:
+            if int(random.randrange(1 + rarityBonus(newWeapon), 11) / 10) == 1:
+                newWeapon.modifier = randomModifier()
+            else:
+                newWeapon.modifier = modifiers.none
         else:
-            newWeapon.modifier = modifiers.none
+            if int(random.randrange(1 + rarityBonus(newWeapon), 12) / 10) == 1:
+                newWeapon.modifier = randomModifier()
+            else:
+                newWeapon.modifier = modifiers.none
 
         newWeapon.critChance = round(newWeapon.critChance, 1)
         newWeapon.critDamage = round(newWeapon.critDamage, 1)
@@ -169,10 +175,16 @@ def randomWeapon(player: Player) -> Weapon:
         newWeapon.critChance = round(newWeapon.critChance, 1)
         newWeapon.critDamage = round(newWeapon.critDamage, 1)
 
-        if int(random.randrange(1 + rarityBonus(newWeapon), 11) / 10) == 1:
-            newWeapon.modifier = randomModifier()
+        if rarityBonus(newWeapon) < 10:
+            if int(random.randrange(1 + rarityBonus(newWeapon), 11) / 10) == 1:
+                newWeapon.modifier = randomModifier()
+            else:
+                newWeapon.modifier = modifiers.none
         else:
-            newWeapon.modifier = modifiers.none
+            if int(random.randrange(1 + rarityBonus(newWeapon), 12) / 10) == 1:
+                newWeapon.modifier = randomModifier()
+            else:
+                newWeapon.modifier = modifiers.none
 
         return newWeapon
     else:
@@ -337,13 +349,13 @@ def main():
         print(f"{weapon1.modifier.description}" + f"{weapon2.modifier.description}".rjust(40))
         
         decision = ""
-        while decision != "Swap" and decision != "Drop":
+        while decision != "Swap" and decision != "S" and decision != "Drop" and decision != "D":
             decision = input("\nWould you like to Swap or Drop this new weapon?: ")
-        if decision == "Swap":
+        if decision == "Swap" or decision == "S":
             player.weapon = weapon2
             print("Swapped weapon")
             return
-        elif decision == "Drop":
+        elif decision == "Drop" or decision == "D":
             return
     
     def loot():
@@ -380,17 +392,17 @@ def main():
                 print("You got nothing!")
 
     classInput = ""
-    while classInput != "Melee" and classInput != "Range":
+    while classInput != "Melee" and classInput != "M" and classInput != "Range" and classInput != "R":
         clear()
         print("\033[91mPLEASE NOTE EVERYTHING IS CASE SENSITIVE\033[0m\n")
         classInput = input("Which class would you like to pick?\n" \
         "\033[91mMelee\033[0m: High Damage, Low Crit\n" \
         "\033[94mRange\033[0m: Low Damage, High Crit\n\n" \
         "Select a class: ")
-    if classInput == "Melee":
+    if classInput == "Melee" or classInput == "M":
         player.weapon = starterWeapons.meleeStarter
         player.playerClass = "Melee"
-    elif classInput == "Range":
+    elif classInput == "Range" or classInput == "R":
         player.weapon = starterWeapons.rangeStarter
         player.playerClass = "Range"
     else:
