@@ -104,7 +104,7 @@ def randomRarity() -> str:
         return "Rare"
     elif randNum <= 99: # 5%
         return "Epic"
-    if randNum > 99: # 1%
+    elif randNum > 99: # 1%
         return "Legendary"
     else:
         return "Error"
@@ -422,5 +422,6 @@ def main():
     main()
 
 main()
+
 
 
