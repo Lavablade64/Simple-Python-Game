@@ -10,11 +10,11 @@ The names of weapons do not mean anything, the rarity increases the chances of h
 
 Weapon Modifiers:  
 Lifesteal: Heals HP when attacking, scales with Max HP  
-Health Boost: Increases Max HP each round  
+Health Bonus: Increases Max HP each round  
 Heal Boost: Increases the chances of healing more  
 Weapon Luck: Increases the chances of finding a weapon  
 Chaos: Randomly modifies one stat of a weapon (equal chance to increase or decrease)
 
 Known Issues:  
-Chaos description has tiny problem with the color  
-Requires capital letters
+None  
+If find any bugs, general problems, or just suggestions feel free to create an issue.
