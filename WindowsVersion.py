@@ -59,7 +59,7 @@ class modifiers:
 
     chaos = Modifier()
     chaos.name = "\033[95mChaos\033[0m"
-    chaos.description = "Has a chance to \033[92increase\033[0m or \033[91decrease\033[0m weapon stats"
+    chaos.description = "Has a chance to \033[92mincrease\033[0m or \033[91mdecrease\033[0m weapon stats"
 
 def randomModifier() -> Modifier:
     return random.choice([modifiers.lifesteal, modifiers.healBoost, modifiers.itemFinder, modifiers.maxHpBoost, modifiers.chaos])
@@ -421,4 +421,5 @@ def main():
     main()
 
 main()
+
 
