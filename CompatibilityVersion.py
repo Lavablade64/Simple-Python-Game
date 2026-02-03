@@ -95,7 +95,7 @@ def randomBowName() -> str:
     return random.choice(["Bow", "Crossbow", "Slingshot", "Longbow", "Shortbow", "Pistol", "Shotgun", "Handgun", "Rifle", "Revolver"])
 
 def randomRarity() -> str:
-    randNum = random.randrange(99,101)
+    randNum = random.randrange(1,101)
     if randNum <= 64: # 64%
         return "Common"
     elif randNum <= 84: # 20%
@@ -422,4 +422,5 @@ def main():
     main()
 
 main()
+
 
