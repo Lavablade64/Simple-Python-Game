@@ -416,7 +416,9 @@ def main():
     while fight():
         sleep(0.5)
         loot()
-    sleep(2.5)
+    sleep(1)
+    input("Press Enter to continue")
     main()
 
 main()
+
