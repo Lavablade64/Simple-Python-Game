@@ -395,7 +395,6 @@ def main():
     classInput = ""
     while classInput != "melee" and classInput != "m" and classInput != "range" and classInput != "r":
         clear()
-        print("\033[91mPLEASE NOTE EVERYTHING IS CASE SENSITIVE\033[0m\n")
         classInput = input("Which class would you like to pick?\n" \
         "\033[91mMelee\033[0m: High Damage, Low Crit\n" \
         "\033[94mRange\033[0m: Low Damage, High Crit\n\n" \
@@ -423,6 +422,7 @@ def main():
     main()
 
 main()
+
 
 
 
