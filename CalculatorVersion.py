@@ -404,8 +404,8 @@ def main():
     while classInput != "melee" and classInput != "m" and classInput != "range" and classInput != "r":
         clear()
         classInput = input("Pick a Class\n" \
-        "Melee: High Damage, Low Crit\n" \
-        "Range: Low Damage, High Crit\n\n" \
+        "Melee: High Dmg, Low Crit\n" \
+        "Range: Low Dmg, High Crit\n\n" \
         "Select a class: ")
         classInput.lower()
     if classInput == "melee" or classInput == "m":
@@ -430,6 +430,7 @@ def main():
     main()
 
 main()
+
 
 
 
