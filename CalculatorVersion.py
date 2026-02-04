@@ -378,10 +378,10 @@ def main():
                 healAmount += int(random.randrange(0, 11) / 10)
             player.maxhp += healAmount
             if healAmount > 0:
-                print("Max HP has been increased by " + str(healAmount) + " HP")
+                print("+" + str(healAmount) + " Max HP")
             else:
                 if player.weapon.modifier.name == "Weapon Luck":
-                    print("Weapon Luck! You found a new weapon!")
+                    print("Weapon Luck!")
                     compareStats(player.weapon, randomWeapon(player))
                 else:
                     print("You got nothing!")
@@ -430,6 +430,7 @@ def main():
     main()
 
 main()
+
 
 
 
