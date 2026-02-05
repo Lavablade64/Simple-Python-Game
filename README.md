@@ -3,10 +3,10 @@
 
 ## Tips:  
 Pressing the first letter also works eg: Fight can be just F  
-Healing and Lifesteal scales with Max HP  
+Healing scales with Max HP and Lifesteal scales with damage  
 Crits stack on top of each other eg: 1 damage with 100% crit damage does 2 damage with 1 crit, 4 with 2 crits, and 8 with 3 crits  
 The chances to get a weapon modifier increases with weapon rarity  
-The names of weapons do not mean anything, the rarity increases the chances of higher stats massively.
+The names of weapons do not mean anything, the rarity increases the chances of higher stats massively
 
 ## Weapon Modifiers:  
 Lifesteal: Heals HP when attacking, scales with Max HP  
